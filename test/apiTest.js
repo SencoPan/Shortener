@@ -11,7 +11,7 @@ let should = chai.should();
 chai.use(chaiHttp);
 //Our parent block
 describe("URLs", () => {
-  describe("/DELETE URL", () => {
+  describe("DELETE URL", () => {
     it("it should DELETE all in URL", (done) => {
       URL.remove({}, (err) => {
         done();
@@ -19,7 +19,7 @@ describe("URLs", () => {
     });
   });
 
-  describe("/POST URL", () => {
+  describe("POST URL", () => {
     it("it should not POST a URL without URL field", (done) => {
       const test = (server) => {
         chai
@@ -70,7 +70,7 @@ describe("URLs", () => {
       !(server instanceof Promise) ? test() : server.then((app) => test(app));
     });
   });
-  describe("/GET URL", () => {
+  describe("GET URL", () => {
     it("it should be a control test", (done) => {
       const test = (server) => {
         chai
