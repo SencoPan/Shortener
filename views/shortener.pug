@@ -1,8 +1,17 @@
 extends layout
 
+block styles
+    link(rel='stylesheet', href='/stylesheets/shorten.css')
 block content
+    .name
+        h1 Shorten
     form(method="POST" action='/')
         input(type="text" name="url" placeholder="Input your long URL")
-        input(type="submit")
+        input(type="submit" value="Получить ссылку")
     .output
-        p#output #{shortURL}
+        if (type === "url")
+            p#output http://localhost:3000/#{shortURL}
+        else if(type === "error")
+            p#output #{shortURL}
+        else
+            p#outPut Введите свою ссылку
