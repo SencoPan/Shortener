@@ -22,9 +22,13 @@ module.exports = {
         const validation = require('../validations');
 
         const { body: {url}, session: {userId} } = req;
+        const existingURL = await URL.findOne({URL: url});
 
         if( !validation(url) ) {
             res.render('shortener', {shortURL: "Введено неверное URL"});
+            return;
+        } else if(existingURL){
+            res.render('shortener', {existingURL});
             return;
         }
 
