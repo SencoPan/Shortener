@@ -10,7 +10,7 @@ block content
         input(type="submit" value="Получить ссылку")
     .output
         if (type === "url")
-            p#output http://localhost:3000/#{shortURL}
+            p#output http://localhost:#{port}/#{shortURL}
         else if(type === "error")
             p#output #{shortURL}
         else

@@ -83,7 +83,7 @@ describe("URLs", () => {
             done();
           });
       };
-      !(server instanceof Promise) ? test() : server.then((app) => test(app));
+      !(server instanceof Promise) ? test(server) : server.then((app) => test(app));
     });
   });
 });

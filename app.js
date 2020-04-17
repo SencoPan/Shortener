@@ -30,6 +30,24 @@ app.use(
 
 app.use("/", shorternerRouter);
 
+/*
+const crypto = require('crypto');
+let alphabit = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+let good = [];
+let bad = alphabit.split('');
+for(let i = 0; i < 40; i++){
+    const tes = crypto.randomBytes(7).toString("base64");
+    tes.split('').forEach( char => {
+        bad.indexOf(char) === -1 ? good.push(char) : false;
+    })
+}
+console.log(good.reduce((accumulator, res) => {
+    console.log(accumulator, res);
+    accumulator.split('').indexOf(res) === -1 ? accumulator += res : false;
+    return accumulator;
+}));
+*/
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

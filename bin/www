@@ -16,7 +16,7 @@ require('../app').then( app => {
 
   var port = normalizePort(process.env.PORT || '3000');
   app.set('port', port);
-
+  app.locals.port = port;
   /**
    * Create HTTP server.
    */

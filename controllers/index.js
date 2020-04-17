@@ -48,7 +48,13 @@ module.exports = {
       return;
     }
 
-    const shortVersion = crypto.randomBytes(5).toString("hex");
+    let shortVersion = crypto.randomBytes(10).toString("base64")
+        .split('');
+    shortVersion = shortVersion.reduce((acc, cur) => {
+          ["+", "=", "/"].indexOf(cur) === -1 ? acc += cur: false;
+          return acc;
+    });
+
     const shortURL = await new URL({ URL: url, shortVersion, userId }).save();
 
     res.render("shortener", { shortURL: shortURL.shortVersion, type: "url" });
