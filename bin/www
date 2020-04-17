@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
 
 require('../app').then( app => {
+
+  /**
+   * Module dependencies.
+   */
 
   var debug = require('debug')('shorterner:server');
   var http = require('http');
